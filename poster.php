@@ -48,7 +48,6 @@
                                    ));
     echo "Sending to WP 💌 ...\n";
     $response = curl_exec($curl);
-    echo $response;
     $err = curl_error($curl);
     
     curl_close($curl);
