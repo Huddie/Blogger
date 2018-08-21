@@ -6,8 +6,6 @@
     $api_key = $argv[2];
     $wordpress_site = $argv[3];
     
-    echo "Processing blog post #".$blog_post_number."...\n";
-    
     /* Get blog post data */
     $title   = file_get_contents("./Blog-Posts/".$blog_post_number."/title.txt");
     $content = file_get_contents("./Blog-Posts/".$blog_post_number."/content.html");
