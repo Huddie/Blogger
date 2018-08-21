@@ -26,9 +26,12 @@
     $postfields = http_build_query($data);
     
 
+    echo "https://public-api.wordpress.com/rest/v1.2/sites/".$wordpress_site."/posts/new/\n";
+    echo "authorization: Bearer ".$api_key."\n";
+    
     /* Set up post */
     curl_setopt_array($curl, array(
-                                   CURLOPT_URL => "https://public-api.wordpress.com/rest/v1.2/sites/". $wordpress_site."/posts/new/",
+                                   CURLOPT_URL => "https://public-api.wordpress.com/rest/v1.2/sites/".$wordpress_site."/posts/new/",
                                    CURLOPT_RETURNTRANSFER => true,
                                    CURLOPT_ENCODING => "",
                                    CURLOPT_MAXREDIRS => 10,
@@ -40,11 +43,12 @@
                                                                "authorization: Bearer ".$api_key,
                                                                "cache-control: no-cache",
                                                                "content-type: application/x-www-form-urlencoded",
-                                                               "postman-token: 426b1192-95ac-6d34-cf83-6e1025ff0a4a"
+                                                               "postman-token: 2871cdaf-cd1c-5dae-77ff-6c49e4771c4e"
                                                                ),
                                    ));
     echo "Sending to WP 💌 ...\n";
     $response = curl_exec($curl);
+    echo $response;
     $err = curl_error($curl);
     
     curl_close($curl);
@@ -52,7 +56,7 @@
     if ($err) {
         echo "cURL Error #:" . $err;
     } else {
-        echo "The post was successfully created! 👏 👍\n Check it out @ www.".$wordpress_site" 🖥\n";
+        echo "The post was successfully created! 👏 👍\n Check it out @ www.".$wordpress_site." 🖥\n";
         // echo $response;
     }
 
